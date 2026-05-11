@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { clients } from "@/lib/services";
 import LiquidEther from "@/components/LiquidEther";
+import ClientsMarquee from "@/components/ClientsMarquee";
 
 export default function ParallaxHero() {
   const headlineRef = useRef<HTMLDivElement>(null);
@@ -34,9 +34,8 @@ export default function ParallaxHero() {
   return (
     <section className="min-h-screen flex flex-col overflow-hidden relative" style={{background:'#042940'}}>
       {/* Top ticker */}
-      <div ref={tickerRef} className="flex items-center justify-between px-6 py-3"
+      <div ref={tickerRef} className="flex items-center justify-end px-6 py-3"
         style={{borderBottom:'1px solid rgba(255,255,255,0.08)', willChange:'transform'}}>
-        <span className="mono text-xs tracking-widest" style={{color:'rgba(255,255,255,0.25)'}}>COLOMBIA · 2025</span>
         <span className="mono text-xs tracking-widest" style={{color:'#45C4B0'}}>STORYDOING AGENCY</span>
       </div>
 
@@ -57,16 +56,10 @@ export default function ParallaxHero() {
             </div>
 
             <div className="md:col-span-2 flex flex-col justify-end pb-2 mt-8 md:mt-0">
-              <div className="pl-4 space-y-4" style={{borderLeft:'2px solid #D3D829'}}>
+              <div className="pl-4" style={{borderLeft:'2px solid #D3D829'}}>
                 <p className="mono text-xs leading-relaxed" style={{color:'rgba(255,255,255,0.35)'}}>
                   Agencia de<br />Comunicaciones<br />Colombia
                 </p>
-                <Link
-                  href="/contacto"
-                  className="inline-block mono text-xs font-bold px-4 py-2 transition-all"
-                  style={{background:'#D3D829', color:'#042940', boxShadow:'3px 3px 0 #45C4B0'}}>
-                  HABLEMOS →
-                </Link>
               </div>
             </div>
           </div>
@@ -82,16 +75,8 @@ export default function ParallaxHero() {
         </div>
       </div>
 
-      {/* Clients bar */}
-      <div className="px-6 py-4 flex items-center gap-10 overflow-x-auto"
-        style={{borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-        <span className="mono text-xs shrink-0 uppercase tracking-widest" style={{color:'rgba(255,255,255,0.15)'}}>Clientes</span>
-        {clients.map(c => (
-          <span key={c} className="mono text-xs shrink-0 transition-colors" style={{color:'rgba(255,255,255,0.3)'}}>
-            {c.toUpperCase()}
-          </span>
-        ))}
-      </div>
+      {/* Clients marquee */}
+      <ClientsMarquee />
 
       {/* LiquidEther — fluido WebGL con colores de marca */}
       <LiquidEther

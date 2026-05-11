@@ -59,36 +59,40 @@ export default async function ServicePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      <main className="pt-16">
+      <main className="pt-20">
         {/* Hero del servicio */}
-        <section className="bg-black text-white py-24 md:py-32">
+        <section className="py-24 md:py-32" style={{ background: '#042940' }}>
           <div className="max-w-5xl mx-auto px-6">
-            <Link href="/servicios" className="text-gray-500 text-sm hover:text-white transition-colors mb-8 inline-block">
-              ← Todos los servicios
+            <Link href="/servicios" className="mono text-xs uppercase tracking-widest mb-10 inline-block transition-colors"
+              style={{ color: 'rgba(255,255,255,0.35)' }}>
+              ← TODOS LOS SERVICIOS
             </Link>
             <span className="text-5xl block mb-6">{service.icon}</span>
-            <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+            <h1 className="font-bold leading-none mb-8 text-white"
+              style={{ fontSize: 'clamp(2.8rem,7vw,5.5rem)', letterSpacing: '-0.04em' }}>
               {service.title}
             </h1>
-            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">
+            <p className="text-xl max-w-2xl leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.5)' }}>
               {service.longDescription}
             </p>
             <Link
               href="/contacto"
-              className="mt-10 inline-flex items-center px-8 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-colors"
+              className="inline-flex items-center px-8 py-4 font-bold mono text-sm transition-all"
+              style={{ background: '#D3D829', color: '#042940', boxShadow: '4px 4px 0 #45C4B0' }}
             >
-              Solicitar cotización →
+              SOLICITAR COTIZACIÓN →
             </Link>
           </div>
         </section>
 
         {/* ¿Por qué HAT? */}
-        <section className="py-20 bg-white">
+        <section className="py-20" style={{ background: '#F5F5F2' }}>
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-black mb-12">
+            <p className="mono text-xs uppercase tracking-widest mb-3" style={{ color: '#45C4B0' }}>POR QUÉ ELEGIRNOS</p>
+            <h2 className="font-bold text-3xl md:text-4xl mb-12" style={{ color: '#042940', letterSpacing: '-0.03em' }}>
               ¿Por qué elegir HAT para {service.shortTitle}?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   title: "Experiencia comprobada",
@@ -102,10 +106,11 @@ export default async function ServicePage({ params }: Props) {
                   title: "Equipo multidisciplinario",
                   body: "Estrategas, diseñadores, creativos y productores trabajando juntos bajo el enfoque Storydoing para garantizar resultados extraordinarios.",
                 },
-              ].map((item) => (
-                <div key={item.title} className="p-6 bg-gray-50 rounded-2xl">
-                  <h3 className="font-bold text-lg mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+              ].map((item, i) => (
+                <div key={item.title} className="p-6" style={{ border: '2px solid #042940' }}>
+                  <p className="font-bold text-2xl mb-4" style={{ color: '#D3D829' }}>{String(i + 1).padStart(2, '0')}</p>
+                  <h3 className="font-bold text-lg mb-3" style={{ color: '#042940' }}>{item.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(4,41,64,0.6)' }}>{item.body}</p>
                 </div>
               ))}
             </div>
@@ -113,9 +118,12 @@ export default async function ServicePage({ params }: Props) {
         </section>
 
         {/* Proceso */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20" style={{ background: '#042940' }}>
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-black mb-12">Nuestro proceso</h2>
+            <p className="mono text-xs uppercase tracking-widest mb-3" style={{ color: '#45C4B0' }}>CÓMO TRABAJAMOS</p>
+            <h2 className="font-bold text-3xl md:text-4xl mb-12 text-white" style={{ letterSpacing: '-0.03em' }}>
+              Nuestro proceso
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
                 { step: "01", title: "Diagnóstico", desc: "Analizamos tu marca, competencia y audiencia a profundidad." },
@@ -123,10 +131,10 @@ export default async function ServicePage({ params }: Props) {
                 { step: "03", title: "Ejecución", desc: "Implementamos con excelencia y atención al detalle." },
                 { step: "04", title: "Medición", desc: "Analizamos resultados y optimizamos continuamente." },
               ].map((p) => (
-                <div key={p.step} className="relative">
-                  <span className="text-6xl font-black text-gray-100">{p.step}</span>
-                  <h3 className="font-bold text-lg -mt-6 mb-2">{p.title}</h3>
-                  <p className="text-gray-500 text-sm">{p.desc}</p>
+                <div key={p.step} className="p-5" style={{ borderLeft: '3px solid #D3D829' }}>
+                  <span className="font-bold text-5xl block mb-2" style={{ color: '#D3D829', letterSpacing: '-0.04em' }}>{p.step}</span>
+                  <h3 className="font-bold text-lg mb-2 text-white">{p.title}</h3>
+                  <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>{p.desc}</p>
                 </div>
               ))}
             </div>
@@ -134,19 +142,23 @@ export default async function ServicePage({ params }: Props) {
         </section>
 
         {/* Servicios relacionados */}
-        <section className="py-20 bg-white">
+        <section className="py-20" style={{ background: '#F5F5F2' }}>
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-black mb-10">También podría interesarte</h2>
+            <p className="mono text-xs uppercase tracking-widest mb-3" style={{ color: '#45C4B0' }}>TAMBIÉN PODRÍA INTERESARTE</p>
+            <h2 className="font-bold text-3xl md:text-4xl mb-10" style={{ color: '#042940', letterSpacing: '-0.03em' }}>
+              Otros servicios
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((s) => (
                 <Link
                   key={s.slug}
                   href={`/servicios/${s.slug}`}
-                  className="group p-6 border border-gray-100 rounded-2xl hover:border-red-200 hover:shadow-md transition-all"
+                  className="group p-6 transition-all"
+                  style={{ border: '2px solid rgba(4,41,64,0.15)', background: '#fff' }}
                 >
                   <span className="text-2xl mb-3 block">{s.icon}</span>
-                  <h3 className="font-bold mb-2 group-hover:text-red-600 transition-colors">{s.title}</h3>
-                  <p className="text-gray-500 text-sm">{s.description}</p>
+                  <h3 className="font-bold mb-2" style={{ color: '#042940' }}>{s.title}</h3>
+                  <p className="text-sm" style={{ color: 'rgba(4,41,64,0.55)' }}>{s.description}</p>
                 </Link>
               ))}
             </div>
@@ -154,17 +166,20 @@ export default async function ServicePage({ params }: Props) {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-black text-white">
+        <section className="py-20" style={{ background: '#D3D829', borderBottom: '4px solid #042940' }}>
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-4xl font-black mb-4">¿Tienes un proyecto en mente?</h2>
-            <p className="text-gray-400 text-lg mb-8">
+            <h2 className="font-bold text-4xl md:text-5xl mb-4" style={{ color: '#042940', letterSpacing: '-0.03em' }}>
+              ¿Tienes un proyecto en mente?
+            </h2>
+            <p className="text-lg mb-10" style={{ color: 'rgba(4,41,64,0.65)' }}>
               Cuéntanos sobre tu marca y diseñamos juntos la estrategia perfecta.
             </p>
             <Link
               href="/contacto"
-              className="inline-flex items-center px-8 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-colors"
+              className="inline-flex items-center px-10 py-5 font-bold mono text-sm transition-all"
+              style={{ background: '#042940', color: '#D3D829', boxShadow: '5px 5px 0 #45C4B0' }}
             >
-              Contactar a HAT →
+              CONTACTAR A HAT →
             </Link>
           </div>
         </section>

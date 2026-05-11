@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
-  { href: "/servicios", label: "Servicios" },
+  { href: "/#servicios", label: "Servicios" },
   { href: "/nosotros", label: "Nosotros" },
-  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Navbar() {
@@ -13,12 +13,16 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50" style={{background:'#042940', borderBottom:'2px solid #D3D829'}}>
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
-        <Link href="/" className="flex items-center gap-1">
-          <span className="font-bold text-lg tracking-tight text-white" style={{fontFamily:"'Space Grotesk',sans-serif", letterSpacing:'-0.04em'}}>
-            HaT
-          </span>
-          <span style={{color:'#D3D829', fontFamily:"'Space Mono',monospace", fontSize:'20px', lineHeight:1}}>_</span>
+      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logos/Hat verde.png"
+            alt="HAT Agencia"
+            height={72}
+            width={240}
+            style={{ objectFit: "contain", objectPosition: "left", height: "72px", width: "auto" }}
+            priority
+          />
         </Link>
 
         <ul className="hidden md:flex items-center gap-1">

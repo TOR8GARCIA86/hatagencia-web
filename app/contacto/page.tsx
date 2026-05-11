@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contacto | HAT Agencia de Comunicaciones Colombia",
@@ -42,142 +44,53 @@ export default function ContactoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
-      <main className="pt-16">
-        <section className="min-h-screen bg-black text-white py-24">
+      <main className="pt-20">
+        <section className="min-h-screen py-24" style={{ background: '#042940', color: '#fff' }}>
           <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Info */}
             <div>
-              <p className="text-red-500 text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="mono text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#45C4B0' }}>
                 Contacto
               </p>
-              <h1 className="text-5xl md:text-6xl font-black leading-tight mb-6">
-                Hablemos de tu <span className="text-red-500">proyecto.</span>
+              <h1 className="font-bold leading-none mb-6" style={{ fontSize: 'clamp(2.5rem,6vw,4.5rem)', letterSpacing: '-0.03em', color: '#fff' }}>
+                Hablemos de tu{' '}
+                <span style={{ color: '#D3D829' }}>proyecto.</span>
               </h1>
-              <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-md">
+              <p className="text-lg leading-relaxed mb-12 max-w-md" style={{ color: 'rgba(255,255,255,0.5)' }}>
                 Cuéntanos qué necesita tu marca y nuestro equipo diseñará la estrategia perfecta
                 para ti. Sin compromisos.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Email</p>
+                  <p className="mono text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>Email</p>
                   <a
-                    href="mailto:hola@hatagencia.com"
-                    className="text-white hover:text-red-400 transition-colors font-medium"
+                    href="mailto:mpaula.rodriguez@hatagencia.com"
+                    className="font-medium transition-colors"
+                    style={{ color: '#D3D829' }}
                   >
-                    hola@hatagencia.com
+                    mpaula.rodriguez@hatagencia.com
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">WhatsApp</p>
+                  <p className="mono text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.3)' }}>WhatsApp</p>
                   <a
-                    href="https://wa.me/573000000000"
+                    href="https://wa.me/573142410514"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-red-400 transition-colors font-medium"
+                    className="font-medium transition-colors"
+                    style={{ color: '#D3D829' }}
                   >
                     Escribirnos por WhatsApp →
                   </a>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-1">Redes</p>
-                  <div className="flex gap-4">
-                    <a href="https://www.instagram.com/hatagencia" target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-400 transition-colors text-sm">Instagram</a>
-                    <a href="https://www.linkedin.com/company/hatagencia" target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-400 transition-colors text-sm">LinkedIn</a>
-                  </div>
                 </div>
               </div>
             </div>
 
             {/* Formulario */}
-            <form
-              action="https://formspree.io/f/REEMPLAZAR-CON-TU-ID"
-              method="POST"
-              className="bg-white text-black rounded-2xl p-8 space-y-6"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold mb-2" htmlFor="nombre">
-                    Nombre *
-                  </label>
-                  <input
-                    id="nombre"
-                    name="nombre"
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-red-400 transition-colors"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold mb-2" htmlFor="empresa">
-                    Empresa
-                  </label>
-                  <input
-                    id="empresa"
-                    name="empresa"
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-red-400 transition-colors"
-                    placeholder="Tu empresa"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-2" htmlFor="email">
-                  Email *
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-red-400 transition-colors"
-                  placeholder="tu@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-2" htmlFor="servicio">
-                  ¿Qué servicio necesitas?
-                </label>
-                <select
-                  id="servicio"
-                  name="servicio"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-red-400 transition-colors bg-white"
-                >
-                  <option value="">Selecciona un servicio</option>
-                  {services.map((s) => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold mb-2" htmlFor="mensaje">
-                  Cuéntanos sobre tu proyecto *
-                </label>
-                <textarea
-                  id="mensaje"
-                  name="mensaje"
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-red-400 transition-colors resize-none"
-                  placeholder="¿Qué necesita tu marca? Cuéntanos con detalle..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-black text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-base"
-              >
-                Enviar mensaje →
-              </button>
-
-              <p className="text-xs text-gray-400 text-center">
-                Respondemos en menos de 24 horas hábiles.
-              </p>
-            </form>
+            <Suspense fallback={<div style={{ color: 'rgba(255,255,255,0.3)' }} className="mono text-xs">Cargando formulario...</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </section>
       </main>

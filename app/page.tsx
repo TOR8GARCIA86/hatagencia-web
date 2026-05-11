@@ -9,24 +9,21 @@ export default function Home() {
   return (
     <>
       {/* GradualBlur fijo — solo borde inferior, visible en todo el scroll */}
-      <GradualBlur target="page" position="bottom" strength={3} height="8rem" divCount={8} curve="ease-out" zIndex={9999} />
+      <GradualBlur target="page" position="bottom" strength={3} height="8rem" divCount={8} curve="ease-out" zIndex={30} />
 
       <Navbar />
-      <main className="pt-14">
+      <main className="pt-20">
 
         {/* ── HERO (parallax) ── */}
         <ParallaxHero />
 
         {/* ── SERVICIOS ── */}
-        <section style={{background:'#F5F5F2', borderBottom:'4px solid #042940'}}>
+        <section id="servicios" style={{background:'#F5F5F2', borderBottom:'4px solid #042940'}}>
           <div className="px-6 md:px-12 py-8 flex items-end justify-between" style={{borderBottom:'1px solid rgba(4,41,64,0.08)'}}>
             <div>
               <p className="mono text-xs tracking-widest uppercase mb-2" style={{color:'#45C4B0'}}>LO QUE HACEMOS</p>
               <h2 className="font-bold text-4xl md:text-5xl" style={{color:'#042940', letterSpacing:'-0.03em'}}>Servicios</h2>
             </div>
-            <Link href="/servicios" className="mono text-xs hidden md:block" style={{color:'rgba(4,41,64,0.4)'}}>
-              VER TODOS →
-            </Link>
           </div>
           <ServicesAccordion />
         </section>
