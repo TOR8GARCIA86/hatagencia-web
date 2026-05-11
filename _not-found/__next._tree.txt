@@ -1,2 +1,2 @@
-:HL["/hatagencia-web/_next/static/chunks/0ukq0cy_fvs~e.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"VNgsSpM7A4q6D3twjk4Gs"}
+:HL["/hatagencia-web/_next/static/chunks/0bu4xw0eoyytp.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"X_VDMqYZKjeetPDGSrPjm"}
